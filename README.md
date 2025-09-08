@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/hosni/laravel-temporary-urls-minio.svg?style=flat-square)](https://packagist.org/packages/hosni/laravel-temporary-urls-minio)
 [![Total Downloads](https://img.shields.io/packagist/dt/hosni/laravel-temporary-urls-minio.svg?style=flat-square)](https://packagist.org/packages/hosni/laravel-temporary-urls-minio)
-[![License](https://img.shields.io/packagist/l/hosni/laravel-temporary-urls-minio.svg?style=flat-square)](LICENSE.md)
+[![License](https://img.shields.io/packagist/l/hosni/laravel-temporary-urls-minio.svg?style=flat-square)](LICENSE)
 [![Laravel](https://img.shields.io/badge/Laravel-9|10%20|11|12-green.svg)](https://laravel.com)
 
 ---
@@ -10,7 +10,7 @@
 ## 🚀 Introduction
 
 By default, **Laravel’s `temporaryUrl()` method** works perfectly with S3-compatible storage.  
-It generates a temporary URL to an object in your S3 bucket—easy peasy!
+It generates a temporary URL to an object in your S3 bucket, easy peasy!
 
 But when you switch to **[MinIO](https://min.io/)**, things get a little wild. Temporary URLs might **not work** if the generated endpoint isn’t directly accessible by your client (browser, mobile app, etc).
 
@@ -20,7 +20,7 @@ From the Laravel documentation:
 
 > [!WARNING]
 > Generating temporary storage URLs via the `temporaryUrl` method may not work when using MinIO if the `endpoint` is not accessible by the client.
-> — [Laravel Filesystem Docs](https://laravel.com/docs/12.x/filesystem#minio)
+> ,  [Laravel Filesystem Docs](https://laravel.com/docs/12.x/filesystem#minio)
 
 **But here’s the BIG question:**
 ### How do you make MinIO’s `temporaryUrl()` work in Laravel?
@@ -37,7 +37,7 @@ Install the package via [Composer](https://getcomposer.org/):
 composer require hosni/laravel-temporary-urls-minio
 ````
 
-Laravel will auto-discover the service provider using [Package Discovery](https://laravel.com/docs/12.x/packages#package-discovery). No extra steps—just sit back and relax!
+Laravel will auto-discover the service provider using [Package Discovery](https://laravel.com/docs/12.x/packages#package-discovery). No extra steps, just sit back and relax!
 
 ---
 
@@ -109,9 +109,9 @@ $mediaItems = $yourModel->getMedia();
 $temporaryS3Url = $mediaItems[0]->getTemporaryUrl(now()->addMinutes(5));
 ```
 
-No need to install packages like [coreproc/laravel-minio-media-library-provider](https://github.com/CoreProc/laravel-minio-media-library-provider), which take a different (and less effective) approach! Their solution simply returns the MinIO endpoint URL, which is only accessible inside your Docker network—not so helpful if you want to share files with the outside world. 😅
+No need to install packages like [coreproc/laravel-minio-media-library-provider](https://github.com/CoreProc/laravel-minio-media-library-provider), which take a different (and less effective) approach! Their solution simply returns the MinIO endpoint URL, which is only accessible inside your Docker network, not so helpful if you want to share files with the outside world. 😅
 
-With this package, your temporary URLs are always accessible—inside or outside Docker. No hacks, no headaches, just happy URLs!
+With this package, your temporary URLs are always accessible, inside or outside Docker. No hacks, no headaches, just happy URLs!
 
 ---
 
