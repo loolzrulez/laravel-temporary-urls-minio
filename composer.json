@@ -1,0 +1,48 @@
+{
+    "name": "hosni/laravel-temporary-urls-minio",
+    "description": "Fix temporary url generation when using MinIO as S3 backend",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/hosni/laravel-temporary-urls-minio",
+    "support": {
+        "issues": "https://github.com/hosni/laravel-temporary-urls-minio/issues",
+        "source": "https://github.com/hosni/laravel-temporary-urls-minio"
+    },
+    "keywords": [
+        "laravel",
+        "minio",
+        "temporary-urls",
+        "s3",
+        "aws"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Hosni\\": "src/Hosni",
+            "Illuminate\\": "src/Illuminate"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hossein Hosni",
+            "email": "hosni.hossein@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": "^9.0|^10.0|^11.0|^12.0",
+        "illuminate/filesystem": "^9.0|^10.0|^11.0|^12.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Hosni\\TemporaryUrlsMinioServiceProvider"
+            ]
+        }
+    },
+    "require-dev": {
+        "league/flysystem-aws-s3-v3": "^3.0"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev"
+}
