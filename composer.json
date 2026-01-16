@@ -1,5 +1,5 @@
 {
-    "name": "hosni/laravel-temporary-urls-minio",
+    "name": "loolzrulez/laravel-temporary-urls-minio",
     "description": "Fix temporary url generation when using MinIO as S3 backend",
     "type": "library",
     "license": "MIT",
