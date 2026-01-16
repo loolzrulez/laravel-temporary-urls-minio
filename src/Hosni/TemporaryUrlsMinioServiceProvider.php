@@ -2,6 +2,7 @@
 
 namespace Hosni;
 
+use Closure;
 use Illuminate\Filesystem\AwsS3V3Adapter;
 use Illuminate\Filesystem\FilesystemManager;
 use Illuminate\Filesystem\MinioS3V3Adapter;
@@ -11,8 +12,8 @@ class TemporaryUrlsMinioServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->app->extend('filesystem', self::extendFilesystem(...));
-        $this->app->extend(FilesystemManager::class, self::extendFilesystem(...));
+        $this->app->extend('filesystem', Closure::fromCallable([self::class, 'extendFilesystem']));
+        $this->app->extend(FilesystemManager::class, Closure::fromCallable([self::class, 'extendFilesystem']));
     }
 
     public static function extendFilesystem(FilesystemManager $filesystem): FilesystemManager
